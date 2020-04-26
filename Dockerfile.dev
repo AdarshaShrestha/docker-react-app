@@ -1,0 +1,17 @@
+# Use node:alpine as base image
+FROM node:alpine
+
+#setup current working directory
+WORKDIR "/app"
+
+#Copy package.json file from the project folder to working dir .i.e. /app
+COPY package.json .
+
+#install dependencies
+RUN npm install
+
+#copy everything from our project dir to working dir
+COPY . .
+
+#run command to startup the project
+CMD [ "npm", "run", "start" ]
