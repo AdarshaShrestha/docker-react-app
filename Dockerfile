@@ -8,5 +8,9 @@ RUN npm run build
 
 #start run phase with base image of nginx
 FROM nginx
+
+#port mapping
+EXPOSE 80
+
 #copy over the build folder from 'build' into the nginx container  
 COPY --from=builder /app/build /usr/share/nginx/html
